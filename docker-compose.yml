@@ -1,0 +1,17 @@
+version: '3'
+services:
+  assessment-service:
+    image: mrksdh/assessment
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  calculation-service:
+    build: ./calculation-service
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
